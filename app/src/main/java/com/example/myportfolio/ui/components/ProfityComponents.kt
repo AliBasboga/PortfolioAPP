@@ -146,7 +146,16 @@ fun PortfolioProjects(modifier: Modifier = Modifier, isShown: Boolean = false)  
                 shadowElevation = 5.dp,
             ) {
                 PortfolioProjectItems(
-                    data = listOf()
+                    data = listOf(
+                        Project(
+                            projectname = "Project 1",
+                            projectDescription = "Project 1 Description"
+                        ),
+                        Project(
+                            projectname = "Project 2",
+                            projectDescription = "Project 2 Description"
+                            )
+                    )
                 )
             }
         }
