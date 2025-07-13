@@ -145,3 +145,8 @@ fun PortfolioProjects(modifier: Modifier = Modifier, isShown: Boolean = false)  
         }
     }
 }
+
+@Composable
+fun PortfolioProjectItems(modifier: Modifier = Modifier) {
+
+}
