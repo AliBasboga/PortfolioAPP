@@ -6,7 +6,9 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -39,10 +41,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.myportfolio.data.model.Project
+import com.example.myportfolio.ui.theme.Pink41
+import com.example.myportfolio.ui.theme.Pink45
 
 @Preview
 @Composable
-private fun PortfolioCard(modifier: Modifier = Modifier) {
+fun PortfolioCard(modifier: Modifier = Modifier) {
 
     val portfolioShowState = remember { mutableStateOf(false) }
 
@@ -57,7 +61,7 @@ private fun PortfolioCard(modifier: Modifier = Modifier) {
             elevation = CardDefaults.cardElevation(10.dp),
             shape = RoundedCornerShape(corner = CornerSize(15.dp)),
             colors = CardDefaults.cardColors(
-                containerColor = androidx.compose.ui.graphics.Color.White
+                containerColor = Color.White
             ),
         ) {
             Column (
@@ -83,7 +87,7 @@ private fun PortfolioCard(modifier: Modifier = Modifier) {
                         fontStyle = FontStyle.Italic
                     )
                 }
-                PortfolioProjects(isShown = true)
+                PortfolioProjects(isShown = portfolioShowState.value)
             }
         }
     }
@@ -149,12 +153,24 @@ fun PortfolioProjects(modifier: Modifier = Modifier, isShown: Boolean = false)  
                     data = listOf(
                         Project(
                             projectname = "Project 1",
-                            projectDescription = "Project 1 Description"
+                            projectDescription = "Project 1 Description Yes yes yes okey okey okey"
                         ),
                         Project(
                             projectname = "Project 2",
-                            projectDescription = "Project 2 Description"
-                            )
+                            projectDescription = "Project 2 Description yes yes yes okey okey okey "
+                        ),
+                        Project(
+                            projectname = "Project 3",
+                            projectDescription = "Project 3 Description yes yes yes okey okey okey"
+                        ),
+                        Project(
+                            projectname = "Project 4",
+                            projectDescription = "Project 4 Description yes yes yes okey okey okey"
+                        ),
+                        Project(
+                            projectname = "Project 5",
+                            projectDescription = "Project 5 Description yes yes yes okey okey okey"
+                        ),
                     )
                 )
             }
@@ -164,23 +180,21 @@ fun PortfolioProjects(modifier: Modifier = Modifier, isShown: Boolean = false)  
 
 @Composable
 fun PortfolioProjectItems(modifier: Modifier = Modifier, data : List<Project>) {
-    LazyColumn {
+    LazyColumn (modifier = modifier.background(Pink45)) {
         items(data) {item ->
             Card(
                 modifier = Modifier
                     .padding(10.dp)
-                    .fillMaxSize(),
+                    .fillMaxWidth(),
                 //elevation = CardDefaults.cardElevation(10.dp),
                 shape = RoundedCornerShape(20.dp),
             ) {
                 Row (
                     modifier = Modifier
+                        .background(color = Pink41)
                         .padding(10.dp)
-                        .background(MaterialTheme.colorScheme.surface)
                 ){
-                    PortfolioProfileImage(modifier = modifier
-                        .size(100.dp)
-                    )
+                    PortfolioProfileImage(modifier = modifier.size(100.dp))
                     Column (
                         modifier = Modifier
                             .padding(10.dp)
